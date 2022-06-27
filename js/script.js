@@ -34,15 +34,7 @@ const btnNext = document.getElementById('next-btn');
 const btnPrev = document.getElementById('prev-btn');
 
 btnNext.addEventListener('click',function(){
-    listImage[activeIndex].classList.remove('active');
-    listThumbnail[activeIndex].classList.remove('active');
-    activeIndex++;
-   // Quando raggiungiamo la lunghezza masssima dell'array torniamo alla posizione iniziale 
-   if(activeIndex === listImage.length){
-      activeIndex = 0;
-   }
-   listImage[activeIndex].classList.add('active');
-   listThumbnail[activeIndex].classList.add('active');
+   forwardMove();
 })
 
 
@@ -56,9 +48,10 @@ btnPrev.addEventListener('click',function(){
     }
     listImage[activeIndex].classList.add('active');
     listThumbnail[activeIndex].classList.add('active');
- }) 
+ })
 
-setInterval( function(){
+
+function forwardMove() {
     listImage[activeIndex].classList.remove('active');
     listThumbnail[activeIndex].classList.remove('active');
     activeIndex++;
@@ -68,4 +61,6 @@ setInterval( function(){
    }
    listImage[activeIndex].classList.add('active');
    listThumbnail[activeIndex].classList.add('active');
-},3000);
+}
+
+setInterval(forwardMove,2000)
