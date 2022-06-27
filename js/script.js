@@ -34,7 +34,7 @@ const btnNext = document.getElementById('next-btn');
 const btnPrev = document.getElementById('prev-btn');
 
 btnNext.addEventListener('click',function(){
-   forwardMove();
+    moveForward();
 })
 
 
@@ -48,10 +48,9 @@ btnPrev.addEventListener('click',function(){
     }
     listImage[activeIndex].classList.add('active');
     listThumbnail[activeIndex].classList.add('active');
- })
+ }) 
 
-
-function forwardMove() {
+function moveForward(){
     listImage[activeIndex].classList.remove('active');
     listThumbnail[activeIndex].classList.remove('active');
     activeIndex++;
@@ -62,5 +61,4 @@ function forwardMove() {
    listImage[activeIndex].classList.add('active');
    listThumbnail[activeIndex].classList.add('active');
 }
-
-setInterval(forwardMove,2000)
+setInterval(moveForward,3000)
